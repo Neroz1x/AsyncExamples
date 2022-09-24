@@ -9,9 +9,10 @@
     <StackPanel>
         <Label Name="Label">Some text</Label>
         <Button HorizontalAlignment="Left" Width="120" Click="OnDeadlock">Click me</Button>
-        <Button HorizontalAlignment="Left" Width="120" Click="OnConfigureAwait">ConfigureAwait(false)</Button>
-        <Button HorizontalAlignment="Left" Width="120" Click="OnContextNull">Context null</Button>
-        <Button HorizontalAlignment="Left" Width="120" Click="OnCustomContext">Custom SyncContext</Button>
-        <Button HorizontalAlignment="Left" Width="120" Click="OnWorks">Works</Button>
+        <Button HorizontalAlignment="Left" Width="120" Click="OnDispatcherInvokeAsync">Dispatcher Invoke</Button>
+        <Button HorizontalAlignment="Left" Width="120" Click="OnContextNullAsync">Context null</Button>
+        <Button HorizontalAlignment="Left" Width="120" Click="OnCustomContextAsync">Custom SyncContext</Button>
+        <Button HorizontalAlignment="Left" Width="120" Click="OnFixedCustomContextAsync">Custom Fixed Context</Button>
+        <Button HorizontalAlignment="Left" Width="120" Click="OnWorksAsync">Works</Button>
     </StackPanel>
 </Window>
