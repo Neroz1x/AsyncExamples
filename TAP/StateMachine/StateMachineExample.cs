@@ -12,7 +12,7 @@ namespace TAP.StateMachine
             var firstTaskResult = await Task.FromResult(param);
             Console.WriteLine("Code after the first await");
 
-            await Task.Delay(2000);
+            await Task.Delay(2000).ConfigureAwait(false);
             Console.WriteLine("Code after the second await");
 
             await Task.Delay(3000);
