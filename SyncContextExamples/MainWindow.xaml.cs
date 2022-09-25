@@ -15,6 +15,7 @@ namespace SyncContextExamples
             InitializeComponent();
         }
 
+        // Deadlock example
         private void OnDeadlock(object sender, RoutedEventArgs e)
         {
             var result = MyTaskAsync().Result;
