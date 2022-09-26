@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3gsahG93C7ExRaRVEY27TMg/AWbmF0/jLeHTaU1UtSPYB1XIreMrOJCuq/2Ob2SPzaYqdJPDo2aKBZ32REIMfQ==",
+  "dgSpecHash": "jnsPNxLMHnji12mLhzxBuQUId1HevXvI2RYfDRFa5nYE39F+G4e/N9B5yJlytmlelsw0o6lExpBL8oZi+h9MZA==",
   "success": true,
-  "projectFilePath": "D:\\AsyncExamples\\Threads\\Threads.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\async\\AsyncExamples\\Threads\\Threads.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ilyag\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\ilyag\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.12\\microsoft.netcore.app.host.win-x64.3.1.12.nupkg.sha512"
+  ],
   "logs": []
 }

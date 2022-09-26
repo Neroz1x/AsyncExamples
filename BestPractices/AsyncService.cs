@@ -26,7 +26,7 @@
             throw new Exception("Task failed");
         }
 
-        // exceptions thrown into async void will break the app down
+        // Exceptions thrown into async void will most likely break the app down
         public async void BackgroundTask()
         {
             await Task.Delay(1_000);
