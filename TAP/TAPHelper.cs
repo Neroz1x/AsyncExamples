@@ -14,7 +14,7 @@ namespace TAP
             await task;
         }
 
-
+        // Continuation goes on current thread if task had been completed by the time await called
         public static async Task OperationCompletedOnAwaitAsync()
         {
             Console.WriteLine("Async operation was completed before await");
@@ -27,6 +27,7 @@ namespace TAP
             Console.WriteLine();
         }
 
+        // Continuation does not go on current thread if task had not been completed by the time await called
         public static async Task OperationNotCompletedOnAwaitAsync()
         {
             Console.WriteLine("Async operation was not completed before await");
@@ -38,6 +39,7 @@ namespace TAP
             Console.WriteLine();
         }
 
+        // TaskCompletionSource usage example
         public static Task<string> CompletionSource()
         {
             TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
@@ -51,6 +53,7 @@ namespace TAP
             return tcs.Task;
         }
 
+        // Start async operation with the help of Task
         public static async Task TaskExample()
         {
             Console.WriteLine($"{GetTimeNow()}: Main Thread: {Thread.CurrentThread.ManagedThreadId}");

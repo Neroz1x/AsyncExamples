@@ -3,17 +3,26 @@
     public sealed class AsyncService
     {
         private readonly Dictionary<int, int> _cache = new Dictionary<int, int>(){ { 1, 1 } };
-        
-        // Async all the way down
+
+        /// <summary>
+        /// Async all the way down
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetStringAsync()
         {
             var myString = "Sub";
             return myString += await GetStringFromFileAsync();
         }
-        private async Task<string> GetStringFromFileAsync()
+
+        // It's better to remove async/await here, but it looks like this so as not to mix practices
+        private async Task<string> GetStringFromFileAsync(string path)
             => await Task.FromResult("substring");
 
-        // Use CancellationToken whenever possible
+        /// <summary>
+        /// Use CancellationToken whenever possible
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task<int> GetIntAsync(CancellationToken cancellationToken)
         {
             await Task.Delay(1_000, cancellationToken);
@@ -26,18 +35,27 @@
             throw new Exception("Task failed");
         }
 
-        // Exceptions thrown into async void will most likely break the app down
+        /// <summary>
+        /// Async void example. Exceptions thrown into async void will most likely break the app down
+        /// </summary>
         public async void BackgroundTask()
         {
             await Task.Delay(1_000);
             throw new Exception("Background task failed");
         }
-        
-        // Could be usefull for Long Running Tasks
+
+        /// <summary>
+        /// Could be usefull for Long Running Tasks
+        /// </summary>
+        /// <returns></returns>
         public async Task LongRunningTask()
             => await Task.Factory.StartNew(() => true, TaskCreationOptions.LongRunning);
 
-        // Use value tasks if it may return not only Task<T>, but T
+        /// <summary>
+        /// Use value tasks if it may return not only Task<T>, but T
+        /// </summary>
+        /// <param name="useChache"></param>
+        /// <returns></returns>
         public async ValueTask<int> ValueTaskExample(bool useChache)
         {
             if (useChache)
@@ -52,7 +70,29 @@
         //public async Task<string> DoNotReturnAwait()
         //    => await Task.FromResult("DoNotReturnAwait");
 
+        /// <summary>
+        /// Return Task<T> if there is no point to await the Task
+        /// </summary>
+        /// <returns></returns>
         public Task<string> DoNotReturnAwait()
             => Task.FromResult("DoNotReturnAwait");
+
+        public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
+        {
+            var fileOne = await GetStringFromFileAsync(path1);
+            var fileTwo = await GetStringFromFileAsync(path2);
+            var fileThree = await GetStringFromFileAsync(path3);
+            return fileOne + fileTwo + fileThree;
+        }
+
+        public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
+        {
+            var taskOne = GetStringFromFileAsync(path1);
+            var taskTwo = GetStringFromFileAsync(path2);
+            var taskThree = GetStringFromFileAsync(path3);
+
+            await Task.WhenAll(taskOne, taskTwo, taskThree);
+
+        }
     }
 }

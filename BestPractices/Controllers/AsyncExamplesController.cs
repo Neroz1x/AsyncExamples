@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace BestPractices.Controllers
 {
     [ApiController]
@@ -17,6 +15,7 @@ namespace BestPractices.Controllers
         public async Task<IActionResult> AsyncTillTheEnd()
             => Ok(await _asyncService.GetStringAsync());
 
+        // Start backgound async void
         [HttpGet("BackgroundTask")]
         public IActionResult BackgroundTask()
         {
@@ -25,6 +24,7 @@ namespace BestPractices.Controllers
             return Ok();
         }
 
+        // Show Task.Wait() exception Stacktrace
         [HttpGet("TaskWait")]
         public IActionResult TaskWait()
         {
@@ -33,6 +33,7 @@ namespace BestPractices.Controllers
             return Ok();
         }
 
+        // Show Task.GetAwaiter().GetResult() exception Stacktrace
         [HttpGet("TaskGetResult")]
         public IActionResult TaskGetResult()
         {
@@ -41,6 +42,7 @@ namespace BestPractices.Controllers
             return Ok();
         }
 
+        // await Task here so as not to do unnecessary await deepper
         [HttpGet("DoNotReturnAwait")]
         public async Task<IActionResult> DoNotReturnAwait()
             => Ok(await _asyncService.DoNotReturnAwait());

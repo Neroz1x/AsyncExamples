@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace TAP
 {
+    // Extension for Custom Awaitable type
     public static class AwaitableExtensions
     {
         public static CustomAwaiter GetAwaiter(this CustomTask task) => new CustomAwaiter(task);

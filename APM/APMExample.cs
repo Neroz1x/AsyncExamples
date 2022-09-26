@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace APM
 {
-    class APMExample
+    internal sealed class APMExample
     {
         // The method to be executed asynchronously.
         public int LongTaskMethod(int[] values)

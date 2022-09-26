@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace TAP
 {
+    // Custom awaitable type
     public sealed class CustomTask
     {
         internal async Task SomeTaskAsync()

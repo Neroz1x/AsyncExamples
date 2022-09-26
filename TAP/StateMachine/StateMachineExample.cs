@@ -5,7 +5,7 @@ namespace TAP.StateMachine
 {
     public class StateMachineExample
     {
-        public static async Task StateMachineExampleAsync(int param)
+        public static async Task<int> StateMachineExampleAsync(int param)
         {
             Console.WriteLine("State Machine");
             Console.WriteLine("Code before first await");
@@ -21,6 +21,7 @@ namespace TAP.StateMachine
             Console.WriteLine(firstTaskResult);
 
             Console.WriteLine();
+            return 1;
         }
     }
 }

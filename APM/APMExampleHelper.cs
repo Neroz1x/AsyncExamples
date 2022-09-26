@@ -5,8 +5,12 @@ using System.Threading;
 
 namespace APM
 {
-    sealed class APMExampleHelper
+    internal sealed class APMExampleHelper
     {
+        /// <summary>
+        /// Example of APM in FileStream's BeginRead/EndRead
+        /// </summary>
+        /// <param name="values"></param>
         internal static void ReadExample(int[] values)
         {
             Console.WriteLine("Read example");
@@ -23,6 +27,10 @@ namespace APM
             currentFileStream.EndRead(result);
         }
 
+        /// <summary>
+        /// Block main thread by executing EndInvoke
+        /// </summary>
+        /// <param name="values"></param>
         internal static void BlockMainThread(int[] values)
         {
             Console.WriteLine("Block thread example");
@@ -44,6 +52,10 @@ namespace APM
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Check IAsuncResult's IsCompleted to wait for result
+        /// </summary>
+        /// <param name="values"></param>
         internal static void WaitTillCompletion(int[] values)
         {
             Console.WriteLine("Wait example");
@@ -69,6 +81,10 @@ namespace APM
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Execute callback after Async Action is completed
+        /// </summary>
+        /// <param name="values"></param>
         internal static void ExecuteCallbackOnComplete(int[] values)
         {
             Console.WriteLine("Callback example");
@@ -86,6 +102,10 @@ namespace APM
             Console.WriteLine($"{GetTimeNow()}: Method continues executing.");
         }
 
+        /// <summary>
+        /// Callback to be execute on completed 
+        /// </summary>
+        /// <param name="asyncResult"></param>
         private static void CallBack(IAsyncResult asyncResult)
         {
             // Retrieve the delegate.
