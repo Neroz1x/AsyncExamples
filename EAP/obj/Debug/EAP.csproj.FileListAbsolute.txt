@@ -1,7 +1,0 @@
-D:\Async\AsyncExamples\EAP\bin\Debug\EAP.exe.config
-D:\Async\AsyncExamples\EAP\bin\Debug\EAP.exe
-D:\Async\AsyncExamples\EAP\bin\Debug\EAP.pdb
-D:\Async\AsyncExamples\EAP\obj\Debug\EAP.csprojAssemblyReference.cache
-D:\Async\AsyncExamples\EAP\obj\Debug\EAP.csproj.CoreCompileInputs.cache
-D:\Async\AsyncExamples\EAP\obj\Debug\EAP.exe
-D:\Async\AsyncExamples\EAP\obj\Debug\EAP.pdb

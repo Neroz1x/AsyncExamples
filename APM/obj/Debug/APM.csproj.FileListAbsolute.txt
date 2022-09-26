@@ -1,7 +1,0 @@
-D:\Async\AsyncExamples\APM\obj\Debug\APM.csprojAssemblyReference.cache
-D:\Async\AsyncExamples\APM\obj\Debug\APM.csproj.CoreCompileInputs.cache
-D:\Async\AsyncExamples\APM\bin\Debug\APM.exe.config
-D:\Async\AsyncExamples\APM\bin\Debug\APM.exe
-D:\Async\AsyncExamples\APM\bin\Debug\APM.pdb
-D:\Async\AsyncExamples\APM\obj\Debug\APM.exe
-D:\Async\AsyncExamples\APM\obj\Debug\APM.pdb
