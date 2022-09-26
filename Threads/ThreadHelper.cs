@@ -5,6 +5,17 @@ namespace Threads
 {
     public sealed class ThreadHelper
     {
+        public static void RunTaskOnAThread()
+        {
+            Console.WriteLine($"{GetTimeNow()}: Main thread started {Thread.CurrentThread.ManagedThreadId}");
+
+            for (int i = 0; i < 5; i++)
+            {
+                var thread = new Thread(Task);
+                thread.Start();
+            }
+        }
+
         public static void RunTaskOnThreadPool()
         {
             Console.WriteLine($"{GetTimeNow()}: Main thread started {Thread.CurrentThread.ManagedThreadId}");

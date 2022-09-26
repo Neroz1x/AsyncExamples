@@ -6,6 +6,7 @@ namespace Threads
     {
         static void Main(string[] args)
         {
+            ThreadHelper.RunTaskOnAThread();
             ThreadHelper.RunTaskOnThreadPool();
 
             Console.ReadKey();

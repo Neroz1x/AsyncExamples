@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace SyncContext.Contexts
 {
+    // Example of custom Synchronization context 
     internal sealed class MaxConcurrencySynchronizationContext : SynchronizationContext
     {
         private readonly SemaphoreSlim _semaphore;
