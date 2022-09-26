@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32328.378
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAP", "EAP\EAP.csproj", "{B32B4AAF-3801-4A7C-AA1C-9B700A213CA3}"
 EndProject
@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAP", "TAP\TAP.csproj", "{C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads", "Threads\Threads.csproj", "{EE571A5C-D5CB-4EAE-BFA0-CE9996D3C023}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncContextExamples", "SyncContextExamples\SyncContextExamples.csproj", "{185621FB-48D0-4140-895F-C452A6AC6FDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncContext", "SyncContextExamples\SyncContext.csproj", "{185621FB-48D0-4140-895F-C452A6AC6FDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BestPractices", "BestPractices", "{94E1357A-AC52-444A-98D3-0250EFB4603A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestPractices", "BestPractices\BestPractices.csproj", "{5F23958D-48EF-41C7-B54C-82B523EE2756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestPractices", "BestPractices\BestPractices.csproj", "{5F23958D-48EF-41C7-B54C-82B523EE2756}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

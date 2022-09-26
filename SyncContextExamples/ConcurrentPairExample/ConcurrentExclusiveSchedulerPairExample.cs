@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Windows.Controls;
 
-namespace SyncContextExamples
+namespace SyncContext
 {
     internal sealed class ConcurrentExclusiveSchedulerPairExample
     {

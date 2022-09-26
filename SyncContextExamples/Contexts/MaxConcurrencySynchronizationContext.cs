@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace SyncContextExamples.Contexts
+namespace SyncContext.Contexts
 {
     internal sealed class MaxConcurrencySynchronizationContext : SynchronizationContext
     {

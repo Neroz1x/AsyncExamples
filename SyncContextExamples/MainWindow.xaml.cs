@@ -1,9 +1,9 @@
-﻿using SyncContextExamples.Contexts;
+﻿using SyncContext.Contexts;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace SyncContextExamples
+namespace SyncContext
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,6 +22,7 @@ namespace SyncContextExamples
             Label.Content = "Completed";
         }
 
+        // Use UIcontrol.Dispatcher.Invoke to perform callback on UI Thread
         private async void OnDispatcherInvokeAsync(object sender, RoutedEventArgs e)
         {
             SynchronizationContext.SetSynchronizationContext(null);
@@ -29,6 +30,7 @@ namespace SyncContextExamples
             Label.Dispatcher.Invoke(() => Label.Content = "Completed");
         }
 
+        // Pass UI Synchronization Context to Post Continuation on it
         private async void OnFixedCustomContextAsync(object sender, RoutedEventArgs e)
         {
             SynchronizationContext.SetSynchronizationContext(
@@ -36,7 +38,8 @@ namespace SyncContextExamples
             var result = await MyTaskAsync();
             Label.Content = "Completed";
         }
-        
+
+        // Label.Content = "Completed" will throw exception because UI context is lost
         private async void OnCustomContextAsync(object sender, RoutedEventArgs e)
         {
             SynchronizationContext.SetSynchronizationContext(new MaxConcurrencySynchronizationContext(1));
@@ -44,6 +47,7 @@ namespace SyncContextExamples
             Label.Content = "Completed";
         }
 
+        // Label.Content = "Completed" will throw exception because UI context is lost
         private async void OnContextNullAsync(object sender, RoutedEventArgs e)
         {
             SynchronizationContext.SetSynchronizationContext(null);
@@ -60,7 +64,9 @@ namespace SyncContextExamples
         private async Task<int> MyTaskAsync()
         {
             Label.Content = "Started";
-            await Task.Delay(1_000).ConfigureAwait(false);
+            await Task.Delay(1_000);
+            // Use this to prevent Deadlock when .Wait() on UI Thread or if there are Context Limitations
+            //await Task.Delay(1_000);
             return 1;
         }
 

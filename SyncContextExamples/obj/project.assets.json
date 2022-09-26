@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContextExamples.csproj",
-      "projectName": "SyncContextExamples",
-      "projectPath": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContextExamples.csproj",
+      "projectUniqueName": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContext.csproj",
+      "projectName": "SyncContext",
+      "projectPath": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContext.csproj",
       "packagesPath": "C:\\Users\\ilyag\\.nuget\\packages\\",
       "outputPath": "D:\\async\\AsyncExamples\\SyncContextExamples\\obj\\",
       "projectStyle": "PackageReference",

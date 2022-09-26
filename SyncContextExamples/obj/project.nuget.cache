@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Eq1Wn0sxaqmTl/FcWm1rGKxvVesklIF/oB9MDL8Xj0BIMliZkRMiBPGcCVB86t3saDe58w+EPrSUOcMEM6d4eA==",
+  "dgSpecHash": "S03kUh7pVJuKuZdPxrkczUxGYu7tMVqrNQI5KxoyIQwQOTSbe1H0RLPvbDyaD6x3nG0qBwTkl2+Ff7S6dXUUIw==",
   "success": true,
-  "projectFilePath": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContextExamples.csproj",
+  "projectFilePath": "D:\\async\\AsyncExamples\\SyncContextExamples\\SyncContext.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ilyag\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
     "C:\\Users\\ilyag\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.12\\microsoft.netcore.app.host.win-x64.3.1.12.nupkg.sha512"
