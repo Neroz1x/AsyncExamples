@@ -13,3 +13,5 @@ mono_crash.*
 [Rr]elease/
 [Bb]in/
 [Oo]bj/
+
+.vs/
