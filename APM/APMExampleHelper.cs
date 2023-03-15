@@ -72,8 +72,8 @@ namespace APM
             // Wait completion
             while (result.IsCompleted == false)
             {
-                Thread.Sleep(250);
-                Console.Write($"");
+                Thread.Sleep(1000);
+                Console.WriteLine("Waitng");
             }
             Console.WriteLine($"{GetTimeNow()}: Method complete.");
             // Call EndInvoke to retrieve the results.
@@ -99,7 +99,7 @@ namespace APM
             var stateInfo = "{0}: Callback executed. The result is {1}. Thread: {2}";
             IAsyncResult result = caller.BeginInvoke(values, CallBack, stateInfo);
 
-            Console.WriteLine($"{GetTimeNow()}: Method continues executing.");
+            Console.WriteLine($"{GetTimeNow()}: Main thread continues executing. Thread: {Thread.CurrentThread.ManagedThreadId}");
         }
 
         /// <summary>

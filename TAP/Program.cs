@@ -8,11 +8,11 @@ namespace TAP
         static async Task Main(string[] args)
         {
             // Custom awaitable example
-            //await TAPHelper.CustomAwaitableExample();
+            await TAPHelper.CustomAwaitableExample();
 
             // await examples
-            //await TAPHelper.OperationCompletedOnAwaitAsync();
-            //await TAPHelper.OperationNotCompletedOnAwaitAsync();
+            await TAPHelper.OperationCompletedOnAwaitAsync();
+            await TAPHelper.OperationNotCompletedOnAwaitAsync();
 
             // State machine example
             //await StateMachineExample.StateMachineExampleAsync(1000);
@@ -21,7 +21,7 @@ namespace TAP
             //await TAPHelper.CompletionSource();
 
             // Start new async
-            await TAPHelper.TaskExample();
+            //await TAPHelper.TaskExample();
 
             Console.ReadKey();
         }
