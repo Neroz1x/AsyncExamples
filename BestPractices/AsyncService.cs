@@ -11,7 +11,7 @@
         public async Task<string> GetStringAsync()
         {
             var myString = "Sub";
-            return myString += await GetStringFromFileAsync();
+            return myString += await GetStringFromFileAsync("test");
         }
 
         // It's better to remove async/await here, but it looks like this so as not to mix practices
@@ -85,14 +85,14 @@
             return fileOne + fileTwo + fileThree;
         }
 
-        public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
-        {
-            var taskOne = GetStringFromFileAsync(path1);
-            var taskTwo = GetStringFromFileAsync(path2);
-            var taskThree = GetStringFromFileAsync(path3);
+        //public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
+        //{
+        //    var taskOne = GetStringFromFileAsync(path1);
+        //    var taskTwo = GetStringFromFileAsync(path2);
+        //    var taskThree = GetStringFromFileAsync(path3);
 
-            await Task.WhenAll(taskOne, taskTwo, taskThree);
+        //    await Task.WhenAll(taskOne, taskTwo, taskThree);
 
-        }
+        //}
     }
 }
