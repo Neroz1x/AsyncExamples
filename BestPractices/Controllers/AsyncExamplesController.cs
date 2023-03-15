@@ -48,5 +48,10 @@ namespace BestPractices.Controllers
         [HttpGet("DoNotReturnAwait")]
         public async Task<IActionResult> DoNotReturnAwait()
             => Ok(await _asyncService.DoNotReturnAwaitAsync());
+
+        
+        [HttpGet("ReadFromFiles")]
+        public async Task<IActionResult> ReadFromFiles()
+            => Ok(await _asyncService.ReadFromThreeFilesAsync("1", "2", "3"));
     }
 }

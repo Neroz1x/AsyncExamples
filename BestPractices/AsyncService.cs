@@ -1,4 +1,6 @@
-﻿namespace BestPractices
+﻿using System.Diagnostics;
+
+namespace BestPractices
 {
     public sealed class AsyncService
     {
@@ -16,23 +18,9 @@
 
         // It's better to remove async/await here, but it looks like this so as not to mix practices
         private async Task<string> GetStringFromFileAsync(string path)
-            => await Task.FromResult("substring");
-
-        /// <summary>
-        /// Use CancellationToken whenever possible
-        /// </summary>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task<int> GetIntAsync(CancellationToken cancellationToken)
-        {
-            await Task.Delay(1_000, cancellationToken);
-            return 1;
-        }
-
-        public async Task ExceptionExampleAsync()
         {
             await Task.Delay(1_000);
-            throw new Exception("Task failed");
+            return $"substring {path}";
         }
 
         /// <summary>
@@ -42,6 +30,29 @@
         {
             await Task.Delay(1_000);
             throw new Exception("Background task failed");
+        }
+        
+        /// <summary>
+        /// Use CancellationToken whenever possible
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<int> GetIntAsync(CancellationToken cancellationToken)
+        {
+            await Task.Delay(1_000_000, cancellationToken);
+
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                await Task.Delay(1_000);
+            }
+
+            return 1;
+        }
+
+        public async Task ExceptionExampleAsync()
+        {
+            await Task.Delay(1_000);
+            throw new Exception("Task failed");
         }
 
         /// <summary>
@@ -67,32 +78,20 @@
 
         // Better to use code below, unless try/catch or using
         // Reasons: Memory, Switching Sync contexts
-        //public async Task<string> DoNotReturnAwait()
-        //    => await Task.FromResult("DoNotReturnAwait");
+        public async Task<string> DoNotReturnAwaitAsync()
+            => await Task.FromResult("DoNotReturnAwait");
 
-        /// <summary>
-        /// Return Task<T> if there is no point to await the Task
-        /// </summary>
-        /// <returns></returns>
-        public Task<string> DoNotReturnAwaitAsync()
-            => Task.FromResult("DoNotReturnAwait");
 
         public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             var fileOne = await GetStringFromFileAsync(path1);
             var fileTwo = await GetStringFromFileAsync(path2);
             var fileThree = await GetStringFromFileAsync(path3);
-            return fileOne + fileTwo + fileThree;
+
+            stopwatch.Stop();
+
+            return $"{fileOne} {fileTwo} {fileThree} time elepsed: {stopwatch.Elapsed}";
         }
-
-        //public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
-        //{
-        //    var taskOne = GetStringFromFileAsync(path1);
-        //    var taskTwo = GetStringFromFileAsync(path2);
-        //    var taskThree = GetStringFromFileAsync(path3);
-
-        //    await Task.WhenAll(taskOne, taskTwo, taskThree);
-
-        //}
     }
 }
