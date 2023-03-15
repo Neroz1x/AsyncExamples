@@ -21,7 +21,7 @@ namespace BestPractices.Controllers
         [HttpGet("BackgroundTask")]
         public IActionResult BackgroundTask()
         {
-            _asyncService.BackgroundTask();
+            _asyncService.BackgroundTaskAsync();
             
             return Ok();
         }
@@ -30,7 +30,7 @@ namespace BestPractices.Controllers
         [HttpGet("TaskWait")]
         public IActionResult TaskWait()
         {
-            _asyncService.ExceptionExample().Wait();
+            _asyncService.ExceptionExampleAsync().Wait();
 
             return Ok();
         }
@@ -39,7 +39,7 @@ namespace BestPractices.Controllers
         [HttpGet("TaskGetResult")]
         public IActionResult TaskGetResult()
         {
-            _asyncService.ExceptionExample().GetAwaiter().GetResult();
+            _asyncService.ExceptionExampleAsync().GetAwaiter().GetResult();
 
             return Ok();
         }
@@ -47,6 +47,6 @@ namespace BestPractices.Controllers
         // await Task here so as not to do unnecessary await deepper
         [HttpGet("DoNotReturnAwait")]
         public async Task<IActionResult> DoNotReturnAwait()
-            => Ok(await _asyncService.DoNotReturnAwait());
+            => Ok(await _asyncService.DoNotReturnAwaitAsync());
     }
 }

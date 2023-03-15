@@ -29,7 +29,7 @@
             return 1;
         }
 
-        public async Task ExceptionExample()
+        public async Task ExceptionExampleAsync()
         {
             await Task.Delay(1_000);
             throw new Exception("Task failed");
@@ -38,7 +38,7 @@
         /// <summary>
         /// Async void example. Exceptions thrown into async void will most likely break the app down
         /// </summary>
-        public async void BackgroundTask()
+        public async void BackgroundTaskAsync()
         {
             await Task.Delay(1_000);
             throw new Exception("Background task failed");
@@ -48,7 +48,7 @@
         /// Could be usefull for Long Running Tasks
         /// </summary>
         /// <returns></returns>
-        public async Task LongRunningTask()
+        public async Task LongRunningTaskAsync()
             => await Task.Factory.StartNew(() => true, TaskCreationOptions.LongRunning);
 
         /// <summary>
@@ -56,7 +56,7 @@
         /// </summary>
         /// <param name="useChache"></param>
         /// <returns></returns>
-        public async ValueTask<int> ValueTaskExample(bool useChache)
+        public async ValueTask<int> ValueTaskExampleAsync(bool useChache)
         {
             if (useChache)
             {
@@ -74,7 +74,7 @@
         /// Return Task<T> if there is no point to await the Task
         /// </summary>
         /// <returns></returns>
-        public Task<string> DoNotReturnAwait()
+        public Task<string> DoNotReturnAwaitAsync()
             => Task.FromResult("DoNotReturnAwait");
 
         public async Task<string> ReadFromThreeFilesAsync(string path1, string path2, string path3)
