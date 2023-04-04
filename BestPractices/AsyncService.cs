@@ -93,5 +93,17 @@ namespace BestPractices
 
             return $"{fileOne} {fileTwo} {fileThree} time elepsed: {stopwatch.Elapsed}";
         }
+
+        public async Task<string> ReadFromThreeFilesWAsync(string path1, string path2, string path3)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            var fileOne = GetStringFromFileAsync(path1);
+            var fileTwo = GetStringFromFileAsync(path2);
+            var fileThree = GetStringFromFileAsync(path3);
+            await Task.WhenAll(fileOne, fileThree, fileTwo);
+            stopwatch.Stop();
+
+            return $"{fileOne.Result} {fileTwo.Result} {fileThree.Result} time elepsed: {stopwatch.Elapsed}";
+        }
     }
 }

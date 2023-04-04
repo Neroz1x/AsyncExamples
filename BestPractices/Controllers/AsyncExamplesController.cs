@@ -21,7 +21,11 @@ namespace BestPractices.Controllers
         [HttpGet("BackgroundTask")]
         public IActionResult BackgroundTask()
         {
-            _asyncService.BackgroundTaskAsync();
+            try
+            {
+                _asyncService.BackgroundTaskAsync();
+            }
+            catch (Exception ex) { }
             
             return Ok();
         }
@@ -53,5 +57,9 @@ namespace BestPractices.Controllers
         [HttpGet("ReadFromFiles")]
         public async Task<IActionResult> ReadFromFiles()
             => Ok(await _asyncService.ReadFromThreeFilesAsync("1", "2", "3"));
+
+        [HttpGet("ReadFromFilesW")]
+        public async Task<IActionResult> ReadFromFilesw()
+            => Ok(await _asyncService.ReadFromThreeFilesWAsync("1", "2", "3"));
     }
 }
